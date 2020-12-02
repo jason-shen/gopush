@@ -30,13 +30,13 @@ func Apn(cert string, environment string, devicetoken string, topic string, mode
 		client = apns2.NewClient(certpath).Production()
 	}
 
-	res, err := client.Push(notification)
+	response, err := client.Push(notification)
 	if err != nil {
 		log.Fatal("Error:", err)
 		return nil, err
 	}
 
-	fmt.Printf("%v %v %v\n", res.StatusCode, res.ApnsID, res.Reason)
+	fmt.Printf("%v %v %v\n", response.StatusCode, response.ApnsID, response.Reason)
 
-	return res, nil
+	return response, nil
 }
