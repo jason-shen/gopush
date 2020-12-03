@@ -17,7 +17,7 @@ var (
 		{Name: "password", Type: field.TypeString},
 		{Name: "apikey", Type: field.TypeUUID},
 		{Name: "jwttoken", Type: field.TypeString, Nullable: true},
-		{Name: "activate_code", Type: field.TypeInt8},
+		{Name: "activate_code", Type: field.TypeInt32},
 		{Name: "activated", Type: field.TypeBool},
 		{Name: "locked", Type: field.TypeBool},
 		{Name: "updated_at", Type: field.TypeTime},

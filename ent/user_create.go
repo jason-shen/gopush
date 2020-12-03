@@ -66,7 +66,7 @@ func (uc *UserCreate) SetNillableJwttoken(s *string) *UserCreate {
 }
 
 // SetActivateCode sets the activate_code field.
-func (uc *UserCreate) SetActivateCode(i int8) *UserCreate {
+func (uc *UserCreate) SetActivateCode(i int32) *UserCreate {
 	uc.mutation.SetActivateCode(i)
 	return uc
 }
@@ -322,7 +322,7 @@ func (uc *UserCreate) createSpec() (*User, *sqlgraph.CreateSpec) {
 	}
 	if value, ok := uc.mutation.ActivateCode(); ok {
 		_spec.Fields = append(_spec.Fields, &sqlgraph.FieldSpec{
-			Type:   field.TypeInt8,
+			Type:   field.TypeInt32,
 			Value:  value,
 			Column: user.FieldActivateCode,
 		})

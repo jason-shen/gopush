@@ -136,7 +136,7 @@ func Jwttoken(v string) predicate.User {
 }
 
 // ActivateCode applies equality check predicate on the "activate_code" field. It's identical to ActivateCodeEQ.
-func ActivateCode(v int8) predicate.User {
+func ActivateCode(v int32) predicate.User {
 	return predicate.User(func(s *sql.Selector) {
 		s.Where(sql.EQ(s.C(FieldActivateCode), v))
 	})
@@ -816,21 +816,21 @@ func JwttokenContainsFold(v string) predicate.User {
 }
 
 // ActivateCodeEQ applies the EQ predicate on the "activate_code" field.
-func ActivateCodeEQ(v int8) predicate.User {
+func ActivateCodeEQ(v int32) predicate.User {
 	return predicate.User(func(s *sql.Selector) {
 		s.Where(sql.EQ(s.C(FieldActivateCode), v))
 	})
 }
 
 // ActivateCodeNEQ applies the NEQ predicate on the "activate_code" field.
-func ActivateCodeNEQ(v int8) predicate.User {
+func ActivateCodeNEQ(v int32) predicate.User {
 	return predicate.User(func(s *sql.Selector) {
 		s.Where(sql.NEQ(s.C(FieldActivateCode), v))
 	})
 }
 
 // ActivateCodeIn applies the In predicate on the "activate_code" field.
-func ActivateCodeIn(vs ...int8) predicate.User {
+func ActivateCodeIn(vs ...int32) predicate.User {
 	v := make([]interface{}, len(vs))
 	for i := range v {
 		v[i] = vs[i]
@@ -847,7 +847,7 @@ func ActivateCodeIn(vs ...int8) predicate.User {
 }
 
 // ActivateCodeNotIn applies the NotIn predicate on the "activate_code" field.
-func ActivateCodeNotIn(vs ...int8) predicate.User {
+func ActivateCodeNotIn(vs ...int32) predicate.User {
 	v := make([]interface{}, len(vs))
 	for i := range v {
 		v[i] = vs[i]
@@ -864,28 +864,28 @@ func ActivateCodeNotIn(vs ...int8) predicate.User {
 }
 
 // ActivateCodeGT applies the GT predicate on the "activate_code" field.
-func ActivateCodeGT(v int8) predicate.User {
+func ActivateCodeGT(v int32) predicate.User {
 	return predicate.User(func(s *sql.Selector) {
 		s.Where(sql.GT(s.C(FieldActivateCode), v))
 	})
 }
 
 // ActivateCodeGTE applies the GTE predicate on the "activate_code" field.
-func ActivateCodeGTE(v int8) predicate.User {
+func ActivateCodeGTE(v int32) predicate.User {
 	return predicate.User(func(s *sql.Selector) {
 		s.Where(sql.GTE(s.C(FieldActivateCode), v))
 	})
 }
 
 // ActivateCodeLT applies the LT predicate on the "activate_code" field.
-func ActivateCodeLT(v int8) predicate.User {
+func ActivateCodeLT(v int32) predicate.User {
 	return predicate.User(func(s *sql.Selector) {
 		s.Where(sql.LT(s.C(FieldActivateCode), v))
 	})
 }
 
 // ActivateCodeLTE applies the LTE predicate on the "activate_code" field.
-func ActivateCodeLTE(v int8) predicate.User {
+func ActivateCodeLTE(v int32) predicate.User {
 	return predicate.User(func(s *sql.Selector) {
 		s.Where(sql.LTE(s.C(FieldActivateCode), v))
 	})

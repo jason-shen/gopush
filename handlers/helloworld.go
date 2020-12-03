@@ -9,11 +9,12 @@ import (
 func (h *Handler) HelloWorld(ctx *fiber.Ctx) error {
 	fmt.Println("hello world!")
 	u, err := h.Client.User.Create().
-		SetEmail("jason_2000_nz@hotamil.com").
+		SetEmail("jason@aucklanders.co.nz").
 		SetLastName("Shen").
 		SetFirstName("Jason").
 		SetPassword("1234").
-		SetActivateCode(12).
+		SetActivateCode(1234).
+		SetJwttoken("1234556565").
 		Save(ctx.Context())
 	if err != nil {
 		return fmt.Errorf("failed creating user: %v", err)

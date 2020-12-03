@@ -30,7 +30,7 @@ type User struct {
 	// Jwttoken holds the value of the "jwttoken" field.
 	Jwttoken *string `json:"jwttoken,omitempty"`
 	// ActivateCode holds the value of the "activate_code" field.
-	ActivateCode int8 `json:"activate_code,omitempty"`
+	ActivateCode int32 `json:"activate_code,omitempty"`
 	// Activated holds the value of the "activated" field.
 	Activated bool `json:"activated,omitempty"`
 	// Locked holds the value of the "locked" field.
@@ -105,7 +105,7 @@ func (u *User) assignValues(values ...interface{}) error {
 	if value, ok := values[6].(*sql.NullInt64); !ok {
 		return fmt.Errorf("unexpected type %T for field activate_code", values[6])
 	} else if value.Valid {
-		u.ActivateCode = int8(value.Int64)
+		u.ActivateCode = int32(value.Int64)
 	}
 	if value, ok := values[7].(*sql.NullBool); !ok {
 		return fmt.Errorf("unexpected type %T for field activated", values[7])

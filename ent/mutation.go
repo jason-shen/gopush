@@ -40,8 +40,8 @@ type UserMutation struct {
 	password         *string
 	apikey           *uuid.UUID
 	jwttoken         *string
-	activate_code    *int8
-	addactivate_code *int8
+	activate_code    *int32
+	addactivate_code *int32
 	activated        *bool
 	locked           *bool
 	updated_at       *time.Time
@@ -373,13 +373,13 @@ func (m *UserMutation) ResetJwttoken() {
 }
 
 // SetActivateCode sets the activate_code field.
-func (m *UserMutation) SetActivateCode(i int8) {
+func (m *UserMutation) SetActivateCode(i int32) {
 	m.activate_code = &i
 	m.addactivate_code = nil
 }
 
 // ActivateCode returns the activate_code value in the mutation.
-func (m *UserMutation) ActivateCode() (r int8, exists bool) {
+func (m *UserMutation) ActivateCode() (r int32, exists bool) {
 	v := m.activate_code
 	if v == nil {
 		return
@@ -391,7 +391,7 @@ func (m *UserMutation) ActivateCode() (r int8, exists bool) {
 // If the User object wasn't provided to the builder, the object is fetched
 // from the database.
 // An error is returned if the mutation operation is not UpdateOne, or database query fails.
-func (m *UserMutation) OldActivateCode(ctx context.Context) (v int8, err error) {
+func (m *UserMutation) OldActivateCode(ctx context.Context) (v int32, err error) {
 	if !m.op.Is(OpUpdateOne) {
 		return v, fmt.Errorf("OldActivateCode is allowed only on UpdateOne operations")
 	}
@@ -406,7 +406,7 @@ func (m *UserMutation) OldActivateCode(ctx context.Context) (v int8, err error) 
 }
 
 // AddActivateCode adds i to activate_code.
-func (m *UserMutation) AddActivateCode(i int8) {
+func (m *UserMutation) AddActivateCode(i int32) {
 	if m.addactivate_code != nil {
 		*m.addactivate_code += i
 	} else {
@@ -415,7 +415,7 @@ func (m *UserMutation) AddActivateCode(i int8) {
 }
 
 // AddedActivateCode returns the value that was added to the activate_code field in this mutation.
-func (m *UserMutation) AddedActivateCode() (r int8, exists bool) {
+func (m *UserMutation) AddedActivateCode() (r int32, exists bool) {
 	v := m.addactivate_code
 	if v == nil {
 		return
@@ -738,7 +738,7 @@ func (m *UserMutation) SetField(name string, value ent.Value) error {
 		m.SetJwttoken(v)
 		return nil
 	case user.FieldActivateCode:
-		v, ok := value.(int8)
+		v, ok := value.(int32)
 		if !ok {
 			return fmt.Errorf("unexpected type %T for field %s", value, name)
 		}
@@ -803,7 +803,7 @@ func (m *UserMutation) AddedField(name string) (ent.Value, bool) {
 func (m *UserMutation) AddField(name string, value ent.Value) error {
 	switch name {
 	case user.FieldActivateCode:
-		v, ok := value.(int8)
+		v, ok := value.(int32)
 		if !ok {
 			return fmt.Errorf("unexpected type %T for field %s", value, name)
 		}

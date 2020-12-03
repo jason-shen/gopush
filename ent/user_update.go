@@ -79,14 +79,14 @@ func (uu *UserUpdate) ClearJwttoken() *UserUpdate {
 }
 
 // SetActivateCode sets the activate_code field.
-func (uu *UserUpdate) SetActivateCode(i int8) *UserUpdate {
+func (uu *UserUpdate) SetActivateCode(i int32) *UserUpdate {
 	uu.mutation.ResetActivateCode()
 	uu.mutation.SetActivateCode(i)
 	return uu
 }
 
 // AddActivateCode adds i to activate_code.
-func (uu *UserUpdate) AddActivateCode(i int8) *UserUpdate {
+func (uu *UserUpdate) AddActivateCode(i int32) *UserUpdate {
 	uu.mutation.AddActivateCode(i)
 	return uu
 }
@@ -271,14 +271,14 @@ func (uu *UserUpdate) sqlSave(ctx context.Context) (n int, err error) {
 	}
 	if value, ok := uu.mutation.ActivateCode(); ok {
 		_spec.Fields.Set = append(_spec.Fields.Set, &sqlgraph.FieldSpec{
-			Type:   field.TypeInt8,
+			Type:   field.TypeInt32,
 			Value:  value,
 			Column: user.FieldActivateCode,
 		})
 	}
 	if value, ok := uu.mutation.AddedActivateCode(); ok {
 		_spec.Fields.Add = append(_spec.Fields.Add, &sqlgraph.FieldSpec{
-			Type:   field.TypeInt8,
+			Type:   field.TypeInt32,
 			Value:  value,
 			Column: user.FieldActivateCode,
 		})
@@ -380,14 +380,14 @@ func (uuo *UserUpdateOne) ClearJwttoken() *UserUpdateOne {
 }
 
 // SetActivateCode sets the activate_code field.
-func (uuo *UserUpdateOne) SetActivateCode(i int8) *UserUpdateOne {
+func (uuo *UserUpdateOne) SetActivateCode(i int32) *UserUpdateOne {
 	uuo.mutation.ResetActivateCode()
 	uuo.mutation.SetActivateCode(i)
 	return uuo
 }
 
 // AddActivateCode adds i to activate_code.
-func (uuo *UserUpdateOne) AddActivateCode(i int8) *UserUpdateOne {
+func (uuo *UserUpdateOne) AddActivateCode(i int32) *UserUpdateOne {
 	uuo.mutation.AddActivateCode(i)
 	return uuo
 }
@@ -570,14 +570,14 @@ func (uuo *UserUpdateOne) sqlSave(ctx context.Context) (_node *User, err error) 
 	}
 	if value, ok := uuo.mutation.ActivateCode(); ok {
 		_spec.Fields.Set = append(_spec.Fields.Set, &sqlgraph.FieldSpec{
-			Type:   field.TypeInt8,
+			Type:   field.TypeInt32,
 			Value:  value,
 			Column: user.FieldActivateCode,
 		})
 	}
 	if value, ok := uuo.mutation.AddedActivateCode(); ok {
 		_spec.Fields.Add = append(_spec.Fields.Add, &sqlgraph.FieldSpec{
-			Type:   field.TypeInt8,
+			Type:   field.TypeInt32,
 			Value:  value,
 			Column: user.FieldActivateCode,
 		})

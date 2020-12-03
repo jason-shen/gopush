@@ -23,7 +23,7 @@ func (User) Fields() []ent.Field {
 		field.String("password"),
 		field.UUID("apikey", uuid.UUID{}).Default(uuid.New),
 		field.String("jwttoken").Optional().Nillable(),
-		field.Int8("activate_code"),
+		field.Int32("activate_code"),
 		field.Bool("activated").Default(false),
 		field.Bool("locked").Default(false),
 		field.Time("updated_at").Default(time.Now),

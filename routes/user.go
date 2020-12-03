@@ -8,5 +8,6 @@ import (
 func SetupUserRoutes(grp fiber.Router, handlers *handlers.Handler) {
 	// conf := config.New()
 	userRoute := grp.Group("/user")
-	userRoute.Get("/register", handlers.HelloWorld)
+	userRoute.Post("/register", handlers.UserRegister)
+	userRoute.Post("/login", handlers.LoginUser)
 }
